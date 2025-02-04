@@ -1,0 +1,2 @@
+[workspace]
+members = [ "message_passing", "shared_state","using_threads"]
