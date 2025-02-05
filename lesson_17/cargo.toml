@@ -1,0 +1,2 @@
+[workspace]
+members = [ "oop_pattern","rust_oop", "trait_objects"]
