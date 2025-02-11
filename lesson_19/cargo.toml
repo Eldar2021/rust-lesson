@@ -1,0 +1,2 @@
+[workspace]
+members = [ "advanced_functions", "advanced_traits", "advanced_types", "macros", "unsafe_rust"]
