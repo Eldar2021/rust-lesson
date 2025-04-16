@@ -12,3 +12,6 @@ reqwest = { version = "0.12.15", features = ["json"] }
 serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
 tokio = { version = "1.44.2", features = ["full"] }
+indicatif = "0.17.11"
+prettytable = "0.10"
+colored = "3.0.0"

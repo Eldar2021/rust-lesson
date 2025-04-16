@@ -1,18 +1,26 @@
 mod api;
 mod models;
+mod utils;
+
 use api::fetch_crypto_prices;
+use indicatif::ProgressBar;
+use utils::{display_prices, init_progress_bar};
 
 #[tokio::main]
 async fn main() {
     println!("Fetching cryptocurrency prices...");
 
-    match fetch_crypto_prices().await {
+    let pb = ProgressBar::new(100);
+
+    init_progress_bar(&pb);
+
+    match fetch_crypto_prices(&pb).await {
         Ok(prices) => {
-            println!("Bitcoin: ${}", prices.bitcoin.usd);
-            println!("Ethereum: ${}", prices.ethereum.usd);
-            println!("Ripple: ${}", prices.ripple.usd);
+            pb.finish_with_message("Prices fetched successfully!");
+            display_prices(prices);
         }
         Err(e) => {
+            pb.finish_with_message("Error fetching prices.");
             eprintln!("Error fetching prices: {}", e);
             return;
         }
