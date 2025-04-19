@@ -17,7 +17,7 @@ fn main() {
 
         if has_won(&board, current_player) {
             print_board(&board);
-            println!("{} kazandı!", current_player);
+            println!("{} kazandı!!!", current_player);
             break;
         }
 
